@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zweira.picturethehit.chatgpt.site/sitemap.xml

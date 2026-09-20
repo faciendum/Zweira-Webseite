@@ -7,25 +7,15 @@ mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', c
 document.addEventListener('keydown', event => { if (event.key === 'Escape' && !mobileNav.hidden) { closeMenu(); menuButton.focus(); } });
 matchMedia('(min-width: 901px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
 
-// An explicit illustrative preview, with no account, network requests or persisted data.
-const preview = document.querySelector('#app-preview');
+// The preview displays original app screenshots. It never accesses app data.
 const tabs = [...document.querySelectorAll('[data-tab]')];
-const icon = name => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
-const previewHeading = (title, subtitle, symbol) => `<div class="phone-topline"><span>BEISPIEL AUS EUREM ALLTAG</span><span class="avatar sage">L</span></div><div class="phone-greeting"><div><p>${title}</p><span>${subtitle}</span></div>${icon(symbol)}</div>`;
-const screens = {
-  heute: preview.innerHTML,
-  gedanken: `${previewHeading('Deine Gedanken.', 'Erst mal loslassen. Nur für dich.', 'note')}<div class="capture">${icon('plus')}<div>Was beschäftigt dich?<small>Hier ist Platz dafür.</small></div></div><div class="preview-notes"><div class="preview-thought">${icon('heart')}Wieder einen Abend nur für uns planen.<span>Beziehung · Nur für dich</span></div><div class="preview-thought">Welche Aufgaben möchte ich diese Woche abgeben?<span>Alltag · Nur für dich</span></div></div><div class="private-note">${icon('lock')}<span>Du entscheidest, was du teilst.</span></div>`,
-  aufteilung: `${previewHeading('Unsere Aufteilung.', 'Klare Zusagen. Gemeinsam getragen.', 'handoff')}<div class="task-card sage"><div class="task-heading">${icon('home')}<span>Unser Zuhause</span></div><strong>Wocheneinkauf planen</strong><div class="task-bottom"><span><b class="avatar">L</b>Lena hat übernommen</span>${icon('check')}</div></div><div class="task-card lavender"><div class="task-heading">${icon('family')}<span>Unser Alltag</span></div><strong>Termin in der Werkstatt</strong><div class="task-bottom"><span><b class="avatar">A</b>Alex hat übernommen</span>${icon('check')}</div></div><div class="preview-summary butter"><strong>Wochenende besprechen</strong><p>Noch zu klären · Wer übernimmt?</p></div><p class="preview-label">Eine Übergabe braucht eure Zusage.</p>`,
-  wir: `${previewHeading('Unser Wir.', 'Euer Alltag hat hier einen Platz.', 'family')}<div class="preview-couple"><span class="person"><b class="avatar sage">L</b>Lena</span>${icon('heart')}<span class="person"><b class="avatar lavender">A</b>Alex</span></div><div class="preview-summary sage"><strong>Unser Zuhause</strong><p>Was ansteht. Wer es übernimmt.</p></div><div class="preview-summary lavender"><strong>Unser Alltag</strong><p>Termine und Absprachen für uns beide.</p></div><div class="private-note">${icon('lock')}<span>Persönliche Gedanken bleiben getrennt.</span></div>`
-};
 function selectTab(tab, focus = false) {
-  const changed = preview.getAttribute('aria-labelledby') !== tab.id;
-  tabs.forEach(item => { const selected = item === tab; item.setAttribute('aria-selected', String(selected)); item.tabIndex = selected ? 0 : -1; });
-  if (changed) {
-    preview.innerHTML = screens[tab.dataset.tab];
-    preview.setAttribute('aria-labelledby', tab.id);
-    preview.scrollTop = 0;
-  }
+  tabs.forEach(item => {
+    const selected = item === tab;
+    item.setAttribute('aria-selected', String(selected));
+    item.tabIndex = selected ? 0 : -1;
+    document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+  });
   if (focus) tab.focus({ preventScroll: true });
 }
 tabs.forEach((tab, index) => {
@@ -39,6 +29,30 @@ tabs.forEach((tab, index) => {
     if (next !== undefined) { event.preventDefault(); selectTab(tabs[next], true); }
   });
 });
+
+// No autoplay: readers choose the pace; touch and keyboard scrolling stay native.
+const gallery = document.querySelector('#story-track');
+const galleryControls = document.querySelector('.gallery-controls');
+const previousImage = document.querySelector('[data-gallery="previous"]');
+const nextImage = document.querySelector('[data-gallery="next"]');
+galleryControls.hidden = false;
+function updateGalleryControls() {
+  previousImage.disabled = gallery.scrollLeft <= 2;
+  nextImage.disabled = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 2;
+}
+galleryControls.addEventListener('click', event => {
+  const button = event.target.closest('[data-gallery]');
+  if (!button) return;
+  const card = gallery.querySelector('.story-card');
+  const distance = card.getBoundingClientRect().width + parseFloat(getComputedStyle(gallery).columnGap);
+  gallery.scrollBy({
+    left: (button.dataset.gallery === 'next' ? 1 : -1) * distance,
+    behavior: document.documentElement.classList.contains('motion-paused') ? 'instant' : 'smooth'
+  });
+});
+gallery.addEventListener('scroll', updateGalleryControls, { passive: true });
+window.addEventListener('resize', updateGalleryControls);
+updateGalleryControls();
 
 const handoff = document.querySelector('.handoff-demo');
 const handoffTitle = document.querySelector('#handoff-title');

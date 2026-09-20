@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zweira.picturethehit.chatgpt.site/sitemap.xml
+Sitemap: https://zweira.de/sitemap.xml

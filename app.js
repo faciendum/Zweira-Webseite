@@ -1,4 +1,15 @@
 'use strict';
+// Germany's new price schedule starts at midnight CET on 3 November 2026.
+// The no-JavaScript version always keeps the explicit, truthful start date.
+const proPriceStart = Date.parse('2026-11-03T00:00:00+01:00');
+function updatePriceSchedule(now = Date.now()) {
+  const active = now >= proPriceStart;
+  document.querySelectorAll('[data-price-scheduled]').forEach(element => { element.hidden = active; });
+  document.querySelectorAll('[data-price-active]').forEach(element => { element.hidden = !active; });
+}
+updatePriceSchedule();
+window.addEventListener('pageshow', () => updatePriceSchedule());
+document.addEventListener('visibilitychange', () => { if (!document.hidden) updatePriceSchedule(); });
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('#mobile-nav');
 const closeMenu = () => { menuButton.setAttribute('aria-expanded', 'false'); menuButton.setAttribute('aria-label', 'Menü öffnen'); mobileNav.hidden = true; };

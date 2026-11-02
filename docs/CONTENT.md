@@ -10,15 +10,21 @@ The campaign line is **“Weniger im Kopf. Mehr wir.”** Prefer small, recogniz
 
 Keep three different concepts separate:
 
-1. **Private thoughts:** local to a person's device. Nothing is automatically visible to their partner. Explicit sharing or conversion to a shared task is a separate action.
+1. **Private thoughts:** stored separately and synced through a person's own private iCloud zone. Nothing is automatically visible to their partner. Explicit sharing or conversion to a shared task is a separate action.
 2. **Household invitation:** a private CloudKit invitation between two iCloud accounts. This is free and does not require an Apple Family group. The invited person needs a profile and must not already have another local or shared household; existing households are not merged automatically.
 3. **Apple Family Sharing:** eligible purchase entitlements, subject to Apple's product and account settings. It does not create a shared household or reveal private thoughts.
 
 The household supports two signed-in people. Children, relatives, and pets are descriptive task contexts, not additional accounts.
 
-Ordinary tasks, dates, thoughts, invitations, family context, and complete JSON data exports are free. Pro adds reminders, widgets, calendar integration, new recurring tasks, insights and achievements, gentle task feedback, custom colors, and readable plan exports. The annual subscription and lifetime purchase are alternatives. Do not hard-code unverified prices or promise that every purchase is automatically shared.
+Ordinary tasks, dates, thoughts, invitations, family context, and complete JSON data exports are free. Pro adds the week start with version 1.7, reminders, widgets, calendar integration, new recurring tasks, insights and achievements, gentle task feedback, custom colors, and readable plan exports. The annual subscription and lifetime purchase are alternatives. The verified German schedule is €19.99 per year or €59.99 lifetime from 3 November 2026. Before that date, keep the start date explicit; the App Store purchase screen remains authoritative. Never promise that every purchase is automatically shared.
 
-Calendar connection is optional and requires permission. Selected device-calendar events shown in Today are not automatically added to the shared household. Native iPhone targeting does not guarantee that Apple prevents iPad compatibility-mode installation; the website should say **“für iPhone”**, not claim a universal installation block.
+Calendar connection is optional and requires permission. Selected device-calendar events shown in Today are not automatically added to the shared household. Zweira supports iPhone and a dedicated iPad interface from iOS/iPadOS 17. The app supports German, English, French and Spanish.
+
+## Week start release
+
+Version 1.7 adds Pro weekly planning in three steps: personal capacity, a task overview and a draft review. Announce it as part of the next update until Apple has released version 1.7; do not imply immediate availability in 1.6. Each person shares only their own capacity after saving. Suggestions remain optional, and handoffs still require acceptance. Private thoughts and device-calendar events do not enter the shared week start. Only the next already-saved routine occurrence is shown. Both people need the updated app because the first saved week start upgrades the household payload to schema 4.
+
+The current website week-start drawing is an illustrative example rather than a screenshot or customer data. Replace it with an approved native capture only when its role and release status stay clear.
 
 ## Screenshots
 

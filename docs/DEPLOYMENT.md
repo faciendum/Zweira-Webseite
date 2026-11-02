@@ -12,6 +12,12 @@ The German App Store storefront is deliberate. Changing `/de/` to `/us/` changes
 
 **Availability check, 20 September 2026:** both supplied App Store storefront URLs returned HTTP 404 during this website update. The intended URL is wired throughout the site, but the public product page must be checked again after Apple's publication process. Do not treat the presence of the link as proof of a released app.
 
+**Week-start update, 2 November 2026:** the public homepage, privacy page and German App Store page resolve successfully. The existing Pages source is `main` at `/`, with `zweira.de` and HTTPS unchanged. The legal notice is restored byte-for-byte from its previously published version to repair its existing 404.
+
+Version 1.7 is still described as the next app update until App Review releases it. The German Pro schedule is €19.99 per year or €59.99 lifetime from 3 November 2026, midnight CET (`2026-11-03T00:00:00+01:00`). Static copy keeps that date explicit; JavaScript updates the promotional heading at and after the boundary. The App Store purchase screen is authoritative.
+
+Local verification covers 1440, 390 and 320 px layouts, additional tablet widths, keyboard screenshot navigation, the mobile menu, both handoff demo outcomes, reduced motion, local assets and the price activation boundary. There are no new dependencies, trackers or backend services.
+
 ## Static hosting
 
 The domain is served by GitHub Pages. The site does not need a Node.js build, environment variables, API credentials, or a native iOS checkout.
@@ -27,7 +33,7 @@ Publishing website changes does not deploy CloudKit schemas, enable purchase Fam
 **Description**
 
 ```text
-Official website for Zweira, the iPhone app for sharing the mental load. Private thoughts, shared responsibility, and a calmer everyday life. Built with accessible HTML, CSS, and vanilla JavaScript.
+Official website for Zweira, the iPhone and iPad app for sharing the mental load. Private thoughts, shared responsibility, and a calmer everyday life. Built with accessible HTML, CSS, and vanilla JavaScript.
 ```
 
 **Website:** `https://zweira.de`
@@ -38,7 +44,7 @@ These are repository settings, not values GitHub reads from README files. An aut
 
 ```sh
 gh repo edit faciendum/Zweira-Webseite \
-  --description "Official website for Zweira, the iPhone app for sharing the mental load. Private thoughts, shared responsibility, and a calmer everyday life. Built with accessible HTML, CSS, and vanilla JavaScript." \
+  --description "Official website for Zweira, the iPhone and iPad app for sharing the mental load. Private thoughts, shared responsibility, and a calmer everyday life. Built with accessible HTML, CSS, and vanilla JavaScript." \
   --homepage "https://zweira.de"
 ```
 

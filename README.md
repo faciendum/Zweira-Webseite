@@ -1,6 +1,6 @@
 # Zweira — less on your mind, more us
 
-The official website for **Zweira**, an iPhone app that helps couples and households share the mental load: a private place for thoughts, clear responsibility for shared tasks, and more breathing room together.
+The official website for **Zweira**, an iPhone and iPad app that helps couples and households share the mental load: a private place for thoughts, clear responsibility for shared tasks, and more breathing room together.
 
 **[Visit zweira.de](https://zweira.de)** · **[View the app on the German App Store](https://apps.apple.com/de/app/zweira-share-the-mental-load/id6814119210)** · **[Contact](mailto:hallo@justanothercoder.de)**
 
@@ -18,12 +18,13 @@ The native iOS app, household data, CloudKit configuration, purchase verificatio
 - Five images from the German App Store campaign in a manually controlled, swipeable gallery.
 - An interactive example of an accepted or declined task handoff, clearly labeled as an example.
 - A clear explanation of private thoughts, a shared household, free features, and optional Pro features.
+- A dedicated week-start introduction for version 1.7 and the German Pro prices scheduled from 3 November 2026.
 - Direct links to the German App Store, including an iOS Smart App Banner.
 - Locally hosted Fraunces fonts, warm paper colors, and gently animated hand-drawn SVG illustrations.
 - Responsive layouts, native FAQ disclosures, visible keyboard focus, reduced-motion support, and an optional animation pause control.
 - Canonical URLs, Open Graph artwork, structured application metadata, a sitemap, and a custom 404 page.
 
-The website is German. The **app** supports German and English.
+The website is German. The **app** supports German, English, French and Spanish on iPhone and iPad.
 
 ## Run locally
 
@@ -71,13 +72,13 @@ Use an HTTP server rather than opening the HTML file directly: root-relative nav
 
 | Area | Intended behavior |
 | --- | --- |
-| Private thoughts | Stored on the person's device; not automatically shared or personally synced through iCloud. |
+| Private thoughts | Stored separately and synced through the person's own private iCloud zone; never automatically shared with the household. |
 | Shared household | One owner and one invited person use their own iCloud accounts. Sharing the household does not require Pro or membership in the same Apple Family. |
 | Tasks and responsibility | Both people see shared tasks. Responsibility changes only when the requested handoff is accepted. |
 | Children, relatives, and pets | Context for tasks, not additional signed-in users. |
 | Free features | Thoughts, ordinary household tasks and dates, invitations, family context, and the complete JSON export. |
-| Optional Pro | Reminders, widgets, calendar integration, new routines, insights and achievements, task feedback, custom colors, and a readable plan export. |
-| Purchase options | Annual auto-renewing subscription or lifetime non-consumable purchase. Prices come from the app's live StoreKit products, not this website. |
+| Optional Pro | Week start with version 1.7, reminders, widgets, calendar integration, new routines, insights and achievements, task feedback, custom colors, and a readable plan export. |
+| Purchase options | Annual auto-renewing subscription or lifetime non-consumable purchase. The German schedule changes to €19.99/year and €59.99 lifetime on 3 November 2026; the StoreKit purchase screen is authoritative. |
 | Apple Family Sharing | Shares an eligible Pro purchase when Apple's product and account settings permit it. It does not invite someone into a household or share private thoughts. |
 
 These descriptions do not certify live CloudKit provisioning, App Store product availability, or a successful two-account device test. Native-app release validation is a separate process.

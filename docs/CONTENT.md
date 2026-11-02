@@ -24,7 +24,7 @@ Calendar connection is optional and requires permission. Selected device-calenda
 
 Version 1.7 adds Pro weekly planning in three steps: personal capacity, a task overview and a draft review. Announce it as part of the next update until Apple has released version 1.7; do not imply immediate availability in 1.6. Each person shares only their own capacity after saving. Suggestions remain optional, and handoffs still require acceptance. Private thoughts and device-calendar events do not enter the shared week start. Only the next already-saved routine occurrence is shown. Both people need the updated app because the first saved week start upgrades the household payload to schema 4.
 
-The current website week-start drawing is an illustrative example rather than a screenshot or customer data. Replace it with an approved native capture only when its role and release status stay clear.
+The week-start section shows an original German version 1.7 app capture with synthetic household data. The optimized `assets/screenshots/weekstart.webp` preserves the full native screen; keep its version label and example-data caption clear.
 
 ## Screenshots
 
@@ -36,6 +36,7 @@ The website uses real German app screenshots and the approved App Store campaign
 | `assets/screenshots/thoughts.webp` | Private thoughts with categories and dates |
 | `assets/screenshots/responsibilities.webp` | Shared responsibilities and task requests |
 | `assets/screenshots/together.webp` | Household members and family context |
+| `assets/screenshots/weekstart.webp` | Original Pro week overview from version 1.7, with synthetic household data |
 | `assets/stories/02-gedanken-ablegen.webp` | Giving thoughts a place |
 | `assets/stories/03-verantwortung-teilen.webp` | Sharing responsibility |
 | `assets/stories/05-euer-tag.webp` | Tasks and calendar events, with a Pro calendar label |
